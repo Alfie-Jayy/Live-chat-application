@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components{
+    
+    .main{
+        @apply bg-slate-300 flex justify-center items-center min-h-screen
+    }
+    
+    .welcome-form{
+        @apply bg-slate-50 sm:w-1/2 xl:w-1/3 m-10 md:m-0 px-7 sm:px-20 py-10 rounded-lg shadow-md
+    }
+
+    .form-title{
+        @apply text-2xl pb-10 font-semibold 
+    }
+    .label{
+        @apply font-semibold text-lg block pb-2 text-slate-500
+    }
+    .input{
+        @apply border-b-[1px] w-full bg-slate-50 pt-1 border-cyan-400 focus:outline-none focus:border-cyan-600 font-medium
+    }
+    .btn{
+        @apply text-white bg-sky-400 p-2 rounded-lg font-medium hover:bg-sky-600 duration-500
+    }
+}

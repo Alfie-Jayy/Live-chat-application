@@ -1,4 +1,4 @@
-# live_chat
+# live_chat web application using Vue, Tailwind, and firebase
 
 ## Project setup
 ```
