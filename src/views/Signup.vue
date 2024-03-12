@@ -20,7 +20,12 @@
               <input class="input" type="password"  v-model="password" />
             </div>
             <button class="btn" >Sign Up</button>
-            <p class="text-sm font-semibold"  >Already have an account? <router-link :to="{name: 'login' }" class="text-blue-600 cursor-pointer hover:underline" >Login</router-link> </p>
+
+            <div v-if="error" class="error">
+              {{ error }}
+            </div>
+
+            <p class="text-sm font-semibold">Already have an account? <router-link :to="{name: 'login' }" class="route-link" >Login</router-link> </p>
           </form>
       
       </div>
@@ -31,27 +36,26 @@
 
 <script>
 import { ref } from 'vue';
-import {auth} from '../firebase/config'
+import UserSignup from "../composables/UserSignup"
 
 export default {
   setup(){
     let name = ref('');
     let email = ref('');
     let password = ref('');
-    let error = ref('')
+    
+    let{error, createAccount} = UserSignup()
+
     let Signup = async() => {
-        try {
-          let response = await auth.createUserWithEmailAndPassword(email.value,password.value)
-          if(!response){
-            throw new Error('Could not create new User')
-          }
-        } catch (err) {
-          error.value = err.message
-          console.log(error.value);
-        }
+          
+      let response = await createAccount(name.value, email.value, password.value)   
+      if(response){
+        console.log(response.user);
+      }
+    
     }
 
-    return {name, email, password, Signup}
+    return {error, name, email, password, Signup}
   }
 };
 </script>

@@ -12,7 +12,7 @@
                 <input class="input" type="text">
             </div>
             <button class="btn" >Login</button>
-            <p class="text-sm font-semibold" >Don't you have an account? <router-link :to="{name: 'signup'}" class="text-blue-600 cursor-pointer hover:underline">Sing Up</router-link> </p>
+            <p class="text-sm font-semibold" >Don't you have an account? <router-link :to="{name: 'signup'}" class="route-link">Sing Up</router-link> </p>
         </form>
     </div>
     </div>
