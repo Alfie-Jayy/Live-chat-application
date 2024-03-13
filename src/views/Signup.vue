@@ -37,12 +37,14 @@
 <script>
 import { ref } from 'vue';
 import UserSignup from "../composables/UserSignup"
+import {useRouter} from 'vue-router'
 
 export default {
   setup(){
     let name = ref('');
     let email = ref('');
     let password = ref('');
+    let router = useRouter()
     
     let{error, createAccount} = UserSignup()
 
@@ -50,7 +52,7 @@ export default {
           
       let response = await createAccount(name.value, email.value, password.value)   
       if(response){
-        console.log(response.user);
+          router.push({name: 'chatroom'})
       }
     
     }
