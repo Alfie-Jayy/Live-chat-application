@@ -10,23 +10,29 @@
     import { ref } from 'vue';
     import CurrentUser from '../composables/CurrentUser.js'
     import {timestamp} from '../firebase/config.js'
+    import GetCollection from '@/composables/GetCollection.js';
+
     
     export default {
         setup() {
             
             let message = ref(null)
             
-            //Invoke Current User function
+            //Invoke Composable functions   
             let {user} = CurrentUser()
+            let {error, AddDoc} = GetCollection('conversations')
 
             // Send Message function
-            let SendMessage = () => {
+            let SendMessage = async() => {
                 let chat = {
                     message: message.value.trim(),
                     user: user.value.displayName,
                     created_at: timestamp()
                 }
-                console.log(chat);
+                
+                //here
+                await AddDoc(chat)
+                
                 message.value = null
             }
 
