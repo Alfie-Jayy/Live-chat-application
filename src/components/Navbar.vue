@@ -10,14 +10,15 @@
 
 <script>
     import {useRouter} from 'vue-router'
-    import {auth} from '../firebase/config.js'    
-    import { ref } from 'vue'
+    import {auth} from '../firebase/config.js'  
+    import CurrentUser from '@/composables/CurrentUser.js'  
     export default {
         
         setup() {
 
-            let user = ref(auth.currentUser)
             let router = useRouter()
+            
+            let {user} = CurrentUser()
             
             let Logout = async() => {
                 try {
@@ -27,10 +28,6 @@
                     console.log(err.message);
                 }
             }
-
-            auth.onAuthStateChanged( (_user)=>{
-                user.value = _user
-            } )
             
 
             return {Logout, user}
