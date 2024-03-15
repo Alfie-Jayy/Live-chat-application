@@ -1,8 +1,10 @@
 <template>
-    <div class="chatbox">
+    <div class="chat-form">
+        <div class="chatbox">
         <form>
-            <textarea class="chat-area" rows="10" @keyup.enter="SendMessage" v-model="message" placeholder="Type message and hit Enter to send" ></textarea>
+            <textarea class="chat-area" @keyup.enter="SendMessage" v-model="message" placeholder="Type message and hit Enter to send" ></textarea>
         </form>
+    </div>
     </div>
 </template>
 
@@ -30,7 +32,6 @@
                     created_at: timestamp()
                 }
                 
-                //here
                 await AddDoc(chat)
                 
                 message.value = null
