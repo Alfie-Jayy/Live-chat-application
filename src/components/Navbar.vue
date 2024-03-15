@@ -2,7 +2,7 @@
     <div class="chat-form">
         <div class="nav" v-if="user">
         <div class="navbar-title" >
-            <h3 class="nav-user">{{ user.displayName }}</h3>
+            <h2 class="nav-user">{{ user.displayName }}</h2>
             <p class="nav-email">{{ user.email }}</p>
         </div>
         <div class="logout-btn" @click="Logout" >Logout</div>

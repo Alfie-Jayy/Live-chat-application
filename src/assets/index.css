@@ -20,7 +20,7 @@
         @apply bg-slate-50 p-5 space-x-5 flex justify-between items-center rounded-t-3xl shadow-md 
     }
     .messages{
-        @apply bg-slate-200 p-3 space-y-3 max-h-96 overflow-auto
+        @apply bg-slate-200 p-3 space-y-3 h-96 overflow-auto
     }
     .chatbox{
         @apply bg-slate-50 rounded-b-3xl p-5
@@ -56,7 +56,7 @@
         @apply text-slate-500 font-normal
     }
     .logout-btn{
-        @apply bg-red-600 text-white px-2 py-1 rounded-xl font-semibold hover:bg-red-700 duration-300 cursor-pointer
+        @apply bg-red-600 text-white px-2 py-1 rounded-xl font-semibold hover:bg-red-700 duration-300 shadow-md cursor-pointer
     }    
     .error{
         @apply font-semibold text-red-500 text-sm

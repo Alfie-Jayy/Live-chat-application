@@ -10,7 +10,8 @@ let createAccount = async(name, email, password) => {
         if(!response){
           throw new Error('Could not create new User')
         }  
-        response.user.updateProfile({displayName:name})  
+        
+        await response.user.updateProfile({displayName:name})  
         return response;
 
       } catch (err) {

@@ -51,6 +51,7 @@ export default {
     let Signup = async() => {
           
       let response = await createAccount(name.value, email.value, password.value)   
+      
       if(response){
           router.push({name: 'chatroom'})
       }

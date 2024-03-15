@@ -4,13 +4,14 @@ import "firebase/compat/firestore"
 import "firebase/compat/auth"
 
 // Your web app's Firebase configuration
+// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAud3Uh3zJD-6aW7ikCi3KKhXlmqq6A_bs",
-  authDomain: "vue-blog-system-f36b1.firebaseapp.com",
-  projectId: "vue-blog-system-f36b1",
-  storageBucket: "vue-blog-system-f36b1.appspot.com",
-  messagingSenderId: "612649361810",
-  appId: "1:612649361810:web:e9605aebc79b3b6f70e14b"
+  apiKey: "AIzaSyDH3z0K6mhl5eftCs96oCxJGoixl3ug2bE",
+  authDomain: "live-chat-8aaaa.firebaseapp.com",
+  projectId: "live-chat-8aaaa",
+  storageBucket: "live-chat-8aaaa.appspot.com",
+  messagingSenderId: "127918978693",
+  appId: "1:127918978693:web:adeb6463a51c336b435bec"
 };
 
 // Initialize Firebase
