@@ -1,9 +1,9 @@
 <template>
     <div class="chat-form">
         
-        <div class="messages">
+        <div class="messages" ref="msgBox" >
         
-            <div  class="single-message" v-for="message in FormatMessage" :key="message.id" >
+            <div class="single-message" v-for="message in FormatMessage" :key="message.id">
                 
                 
                 <span v-if="currentUser.displayName != message.user" class="user" >{{ message.user }}</span> <!-- username -->
@@ -22,7 +22,7 @@
 
 <script>
     import { auth, db } from '@/firebase/config';
-    import { computed, ref } from 'vue'
+    import { computed, ref, onUpdated } from 'vue'
     import { formatDistanceToNow } from "date-fns";
 
 
@@ -31,6 +31,13 @@
             
             let currentUser = ref(auth.currentUser)
             let messages = ref([])
+            let msgBox = ref(null)
+
+
+            //auto scrolling
+            onUpdated(() => {
+                msgBox.value.scrollTop = msgBox.value.scrollHeight
+            }),
             
             // fetch data from firebase
             db.collection('conversations').orderBy('created_at').onSnapshot( (snap)=>{
@@ -45,7 +52,7 @@
             } )
 
 
-            // formate date and time
+            // format time
             let FormatMessage = computed( ()=>{
                 return messages.value.map( (msg)=>{
                     let formatTime = formatDistanceToNow(msg.created_at.toDate())
@@ -54,7 +61,7 @@
                 } )
             } )
 
-            return {messages, FormatMessage, currentUser}
+            return {messages, FormatMessage, currentUser, msgBox}
         }
     }
 </script>
