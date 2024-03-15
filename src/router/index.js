@@ -9,7 +9,15 @@ const routes = [
     path: '/',
     alias: '/login',
     name: 'login',
-    component: Login
+    component: Login,
+    beforeEnter: (to, from, next) => {
+      let user = auth.currentUser;
+      if(!user){
+        next()
+      }else{
+        next({name: 'chatroom'})
+      }
+    }
   },
   {
     path: '/signup',

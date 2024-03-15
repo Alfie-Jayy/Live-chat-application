@@ -13,19 +13,20 @@
     
     
     .chat-form{
-        @apply mx-10 md:mx-0 w-[80%] sm:w-1/2 
+        @apply mx-10 md:mx-0 w-[80%] sm:w-1/2
     }
     
     .nav{
         @apply bg-slate-50 p-5 space-x-5 flex justify-between items-center rounded-t-3xl shadow-md 
     }
     .messages{
-        @apply bg-slate-200 p-5 space-y-3
+        @apply bg-slate-200 p-3 space-y-3 max-h-96 overflow-auto
     }
     .chatbox{
         @apply bg-slate-50 rounded-b-3xl p-5
     }
 
+    
     .user{
         @apply font-semibold text-sm ps-1 text-slate-600
     }
